@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yeqifu.springcloud.dao.PaymentDao">
+
+    <resultMap id="BaseResultMap" type="com.yeqifu.springcloud.entities.Payment">
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <result column="serial" property="serial" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <!--插入一条Payment-->
+    <!--useGeneratedKeys设置为 true 时，表示如果插入的表id以自增列为主键，则允许 JDBC 支持自动生成主键，并可将自动生成的主键id返回-->
+    <insert id="create" parameterType="Payment" useGeneratedKeys="true" keyProperty="id">
+        insert into payment (serial) values (#{serial})
+    </insert>
+    <!--根据id删除一条记录-->
+    <delete id="deletePaymentById" parameterType="Long">
+        delete from payment where id = #{id}
+    </delete>
+    <!--根据id修改一条记录-->
+    <update id="updatePaymentById" parameterType="payment">
+        update payment set serial = #{serial} where id=#{id}
+    </update>
+    <!--根据id查询Payment-->
+    <select id="getPaymentById" parameterType="Long" resultMap="BaseResultMap">
+        select * from payment where id = #{id}
+    </select>
+</mapper>

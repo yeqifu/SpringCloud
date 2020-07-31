@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import javax.websocket.server.PathParam;
 
 /**
  * @Author: 落亦-
@@ -19,10 +18,15 @@ import javax.websocket.server.PathParam;
 @Slf4j
 public class OrderController {
 
+    /**
+     * 通过在eureka上注册过的微服务名称调用
+     */
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
+
     @Resource
     private RestTemplate restTemplate;
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //public static final String PAYMENT_URL = "http://localhost:8001";
 
     @GetMapping(value = "/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
