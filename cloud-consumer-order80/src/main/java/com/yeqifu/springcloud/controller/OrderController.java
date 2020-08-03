@@ -18,24 +18,24 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
+    @Resource
+    private RestTemplate restTemplate;
+
     /**
      * 通过在eureka上注册过的微服务名称调用
      */
     public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
-    @Resource
-    private RestTemplate restTemplate;
-
     //public static final String PAYMENT_URL = "http://localhost:8001";
 
-    @GetMapping(value = "/consumer/payment/create")
+    @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
-        return restTemplate.postForObject(PAYMENT_URL+"payment/create",payment,CommonResult.class);
+        return restTemplate.postForObject(PAYMENT_URL+"/payment/create",payment,CommonResult.class);
     }
 
-    @GetMapping(value = "/consumer/payment/get/{id}")
+    @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
-        return restTemplate.getForObject(PAYMENT_URL+"payment/get/"+id,CommonResult.class);
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
     }
 
 }
