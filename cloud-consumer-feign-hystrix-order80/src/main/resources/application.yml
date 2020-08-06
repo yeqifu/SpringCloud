@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+#这里只把feign做客户端用，不注册进eureka
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+ribbon:
+  eureka:
+    enabled: false

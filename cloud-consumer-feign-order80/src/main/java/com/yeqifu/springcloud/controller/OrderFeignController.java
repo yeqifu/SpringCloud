@@ -4,7 +4,6 @@ import com.yeqifu.springcloud.entities.CommonResult;
 import com.yeqifu.springcloud.entities.Payment;
 import com.yeqifu.springcloud.service.PaymentFeignService;
 import lombok.extern.slf4j.Slf4j;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
