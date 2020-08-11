@@ -21,6 +21,14 @@ spring:
           uri: lb://cloud-payment-service
           predicates:
             - Path=/payment/lb/**
+            - After=2020-08-09T08:01:04.232+08:00[Asia/Shanghai]   #该时间之后访问才有效
+            #- Before=2020-08-19T08:01:04.232+08:00[Asia/Shanghai]
+            #- Between=2020-08-19T08:01:04.232+08:00[Asia/Shanghai],2020-11-19T08:01:04.232+08:00[Asia/Shanghai]
+            #- Cookie=username,yeqifu
+            #- Header=X-Request-Id, \d+ #请求头要有X-Request-Id属性并且值为整数的正则表达式
+            #- Host=**.yeqifu.com
+            #- Method=GET
+            #- Query=username, \d+  #要有参数名username并且值还要是整数才能路由
 
 eureka:
   instance:
