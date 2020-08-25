@@ -25,8 +25,11 @@
         <module name="cloud-providerconsul-payment8006" />
         <module name="cloudalibaba-config-nacos-client3377" />
         <module name="cloudalibaba-consumer-nacos-order83" />
+        <module name="cloudalibaba-consumer-nacos-order84" />
         <module name="cloudalibaba-provider-payment9001" />
         <module name="cloudalibaba-provider-payment9002" />
+        <module name="cloudalibaba-provider-payment9003" />
+        <module name="cloudalibaba-provider-payment9004" />
         <module name="cloudalibaba-sentinel-service8401" />
       </profile>
     </annotationProcessing>
